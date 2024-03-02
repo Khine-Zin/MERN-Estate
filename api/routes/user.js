@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const controller = require("../controllers/user");
-const { saveFile } = require("../utils/gallery");
 
-router.post("/update/:id", saveFile, controller.updateUser);
+router.post("/update/:id", controller.updateUser);
+router.delete("/delete/:id", controller.deleteUser);
 
 module.exports = router;

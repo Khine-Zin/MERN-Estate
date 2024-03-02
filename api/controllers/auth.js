@@ -85,8 +85,18 @@ const google = async (req, res, next) => {
   }
 };
 
+const signout=async(req,res,next)=>{
+  try{
+    res.clearCookie("access_token");
+    Helper.fMsg(res, true, "Delete Success");
+  }catch(error){
+    next(error)
+  }
+}
+
 module.exports = {
   signup,
   signin,
   google,
+  signout
 };

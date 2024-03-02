@@ -20,9 +20,11 @@ mongoose.connect(`mongodb://127.0.0.1:27017/${process.env.DB_NAME}`);
 
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
+const listingRoute = require("./routes/listing");
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
+app.use("/listing", listingRoute);
 
 app.use((err, req, res, next) => {
   err.status = err.status || 500;
